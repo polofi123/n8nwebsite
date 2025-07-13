@@ -1,0 +1,533 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .font-serif {
+    font-family: var(--font-playfair);
+  }
+  .font-sans {
+    font-family: var(--font-inter);
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typewriter Animation */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Background Gradient Fade */
+@keyframes backgroundFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide animations with bounce */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Neon glow pulse */
+@keyframes neonPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #a3ff00, 0 0 10px #a3ff00, 0 0 15px #a3ff00;
+  }
+  50% {
+    text-shadow: 0 0 10px #a3ff00, 0 0 20px #a3ff00, 0 0 30px #a3ff00, 0 0 40px #a3ff00;
+  }
+}
+
+/* Button hover glow */
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(163, 255, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(163, 255, 0, 0.8), 0 0 30px rgba(163, 255, 0, 0.4);
+  }
+}
+
+/* Value Prop Animations */
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconRotateYoyo {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* CTA Section Animations */
+@keyframes radialGlowPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUpCTA {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes neonFillPulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(163, 255, 0, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(163, 255, 0, 0.6), 0 0 40px rgba(163, 255, 0, 0.3);
+  }
+}
+
+@keyframes ctaButtonHover {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(163, 255, 0, 0.3);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(163, 255, 0, 0.8), 0 0 60px rgba(163, 255, 0, 0.4);
+  }
+}
+
+/* Testimonial Animations */
+@keyframes flipUp {
+  from {
+    transform: perspective(1000px) rotateX(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes quoteTextFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes neonGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    color: #a3ff00;
+    text-shadow: 0 0 10px #a3ff00, 0 0 20px #a3ff00;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #a3ff00;
+    text-shadow: 0 0 15px #a3ff00, 0 0 30px #a3ff00, 0 0 40px #a3ff00;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Animation classes */
+.animate-backgroundFadeIn {
+  animation: backgroundFadeIn 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: both;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: both;
+}
+
+.animate-neonPulse {
+  animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+/* Value Prop Animation Classes */
+.animate-scaleIn {
+  animation: scaleIn 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-slideUpFade {
+  animation: slideUpFade 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-iconRotate:hover .icon-rotate {
+  animation: iconRotateYoyo 1s ease-in-out;
+}
+
+/* CTA Animation Classes */
+.animate-radialGlowPulse {
+  animation: radialGlowPulse 2s ease-in-out infinite;
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.7s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-fadeUpCTA {
+  animation: fadeUpCTA 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-neonFillPulse {
+  animation: neonFillPulse 1.8s ease-in-out infinite;
+}
+
+.cta-button-hover:hover {
+  animation: ctaButtonHover 0.2s ease-out forwards;
+}
+
+/* Testimonial Animation Classes */
+.animate-flipUp {
+  animation: flipUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-quoteTextFade {
+  animation: quoteTextFade 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-neonGlow {
+  animation: neonGlow 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Animation delays */
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-150 {
+  animation-delay: 0.15s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+.delay-700 {
+  animation-delay: 0.7s;
+}
+.delay-800 {
+  animation-delay: 0.8s;
+}
+.delay-900 {
+  animation-delay: 0.9s;
+}
+.delay-1000 {
+  animation-delay: 1s;
+}
+.delay-1200 {
+  animation-delay: 1.2s;
+}
+
+.typewriter-line {
+  overflow: hidden;
+  border-right: 2px solid #a3ff00;
+  white-space: nowrap;
+  animation: blink 1s step-end infinite;
+}
+
+.typewriter-complete {
+  border-right: none;
+  animation: none;
+}
+
+/* Button hover effects */
+.btn-glow:hover {
+  animation: buttonGlow 0.3s ease-out forwards;
+}
+
+.btn-glow-secondary:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+.focus\:ring-neon:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(163, 255, 0, 0.5);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-x-5 {
+  transform: rotateX(5deg);
+}
+
+.rotate-y-5 {
+  transform: rotateY(5deg);
+}
+
+.rotate-y-12 {
+  transform: rotateY(12deg);
+}
+
+/* Enhanced 3D card hover effects */
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(-5px);
+  }
+}
+
+.card-3d:hover {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+/* Responsive 3D adjustments */
+@media (max-width: 1024px) {
+  .rotate-y-12 {
+    transform: rotateY(0deg);
+  }
+
+  .rotate-x-5,
+  .rotate-y-5 {
+    transform: none;
+  }
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Infinite Scroll Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse 40s linear infinite;
+}
+
+/* Pause on hover */
+.animate-scroll:hover,
+.animate-scroll-reverse:hover {
+  animation-play-state: paused;
+}
